@@ -25,7 +25,15 @@ function createCard(card) {
   const cardImage = newCard.querySelector('.card__image')
   cardImage.setAttribute('src', card.image)
   cardImage.setAttribute('alt', card.alt)
+  const deleteButton = newCard.querySelector('.card__button')
+  deleteButton.addEventListener('click', handleDeleteButtonClick)
   page.append(newCard)
 }
 
 cards.forEach(createCard)
+
+function handleDeleteButtonClick(event) {
+  const button = event.target
+  const card = button.closest('.card')
+  card.remove()
+}
