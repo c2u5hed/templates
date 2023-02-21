@@ -18,7 +18,7 @@ const cards = [
 
 const page = document.querySelector('.page')
 
-cards.forEach(function(card) {
+function createCard(card) {
   const newCard = document.querySelector('#cardTemplate').content.cloneNode(true)
   const cardHeading = newCard.querySelector('.card__heading')
   cardHeading.textContent = card.heading
@@ -26,4 +26,6 @@ cards.forEach(function(card) {
   cardImage.setAttribute('src', card.image)
   cardImage.setAttribute('alt', card.alt)
   page.append(newCard)
-})
+}
+
+cards.forEach(createCard)
